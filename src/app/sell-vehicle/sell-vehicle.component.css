@@ -1,0 +1,145 @@
+.site-wrapper {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: #f4f5f7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #111;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.nav-links a {
+  color: #bbb;
+  text-decoration: none;
+  margin-left: 24px;
+  font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff;
+}
+
+.form-container {
+  max-width: 550px;
+  margin: 50px auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.form-card {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.form-card h2 {
+  margin: 0 0 8px 0;
+  color: #111;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #e50914;
+  outline: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: #e50914;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #b20710;
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.footer {
+  background: #111;
+  color: #888;
+  text-align: center;
+  padding: 25px;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+.file-input {
+  padding: 10px;
+  background: #fafafa;
+  border: 1px dashed #ced4da;
+  cursor: pointer;
+}
+
+.file-input:hover {
+  border-color: #e50914;
+}
+
+.help-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #28a745;
+  font-weight: 500;
+}

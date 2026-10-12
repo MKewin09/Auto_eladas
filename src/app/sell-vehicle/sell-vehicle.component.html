@@ -1,0 +1,89 @@
+<div class="site-wrapper">
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🚗 AutoSell</div>
+    <nav class="nav-links">
+      <a routerLink="/">Kezdőlap</a>
+      <a routerLink="/sell" class="active">Autó Eladás</a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <div class="form-card">
+      <h2>Addja el autóját</h2>
+      <p class="subtitle">Töltse ki az alábbi adatokat és töltsön fel képeket a járműről.</p>
+
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="brand">Márka</label>
+          <input
+            type="text"
+            id="brand"
+            [(ngModel)]="vehicle.brand"
+            name="brand"
+            required
+            placeholder="pl. BMW"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="model">Modell</label>
+          <input
+            type="text"
+            id="model"
+            [(ngModel)]="vehicle.model"
+            name="model"
+            required
+            placeholder="pl. 320d"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="year">Évjárat</label>
+          <input
+            type="number"
+            id="year"
+            [(ngModel)]="vehicle.year"
+            name="year"
+            required
+            placeholder="pl. 2021"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="price">Irányár (Ft)</label>
+          <input
+            type="number"
+            id="price"
+            [(ngModel)]="vehicle.price"
+            name="price"
+            required
+            placeholder="pl. 8490000"
+          />
+        </div>
+
+        <!-- New File Upload Field -->
+        <div class="form-group">
+          <label for="photos">Autó képei (Több kép is választható)</label>
+          <input
+            type="file"
+            id="photos"
+            (change)="onFileSelected($event)"
+            multiple
+            accept="image/*"
+            class="file-input"
+          />
+          <small class="help-text" *ngIf="selectedFiles.length > 0">
+            {{ selectedFiles.length }} kép kiválasztva.
+          </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary full-width">Hirdetés Közzététele</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 AutoSell. Minden jog fenntartva.</p>
+  </footer>
+</div>

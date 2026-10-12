@@ -1,0 +1,186 @@
+.site-wrapper {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #333;
+  background-color: #f4f5f7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #111;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a {
+  color: #bbb;
+  text-decoration: none;
+  margin-left: 24px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80')
+      no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 110px 20px;
+}
+
+.hero-content {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  margin-bottom: 35px;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  font-size: 1.05rem;
+}
+
+.btn-primary {
+  background: #e50914;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #b20710;
+}
+
+/* How It Works Section */
+.how-it-works {
+  max-width: 1200px;
+  margin: 70px auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #111;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.step-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-number {
+  width: 45px;
+  height: 45px;
+  background: #e50914;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+}
+
+.step-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.step-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* CTA Banner Section */
+.cta-banner {
+  background: #1c1c1e;
+  color: white;
+  text-align: center;
+  padding: 70px 20px;
+  margin-top: 20px;
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.cta-content p {
+  color: #aaa;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  color: #888;
+  text-align: center;
+  padding: 25px;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
