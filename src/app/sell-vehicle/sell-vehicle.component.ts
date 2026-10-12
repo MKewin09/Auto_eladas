@@ -20,7 +20,6 @@ export class SellVehicleComponent {
 
   selectedFiles: File[] = [];
 
-  // Capture selected files from the file input
   onFileSelected(event: any) {
     const files: FileList = event.target.files;
     if (files) {
@@ -29,14 +28,12 @@ export class SellVehicleComponent {
   }
 
   onSubmit() {
-    // Use FormData to package text data AND files together for Laravel
     const formData = new FormData();
     formData.append('brand', this.vehicle.brand);
     formData.append('model', this.vehicle.model);
     formData.append('year', String(this.vehicle.year || ''));
     formData.append('price', String(this.vehicle.price || ''));
 
-    // Append each selected image file
     this.selectedFiles.forEach((file, index) => {
       formData.append(`photos[]`, file);
     });

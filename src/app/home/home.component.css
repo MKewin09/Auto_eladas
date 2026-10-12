@@ -10,7 +10,6 @@
   flex-direction: column;
 }
 
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -39,7 +38,6 @@
   color: #fff;
 }
 
-/* Hero Section */
 .hero {
   background:
     linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
@@ -88,7 +86,6 @@
   background: #b20710;
 }
 
-/* How It Works Section */
 .how-it-works {
   max-width: 1200px;
   margin: 70px auto;
@@ -150,7 +147,6 @@
   margin: 0;
 }
 
-/* CTA Banner Section */
 .cta-banner {
   background: #1c1c1e;
   color: white;
@@ -175,7 +171,6 @@
   font-size: 1.1rem;
 }
 
-/* Footer */
 .footer {
   background: #111;
   color: #888;
