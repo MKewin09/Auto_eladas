@@ -4,10 +4,6 @@ Letóltéshez:
 git init
 ```
 
-```bash
-git pull origin master
-```
-
 Inditáskor A CMD-be futtast a parancsot:
 
 ```bash
