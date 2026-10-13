@@ -1,68 +1,198 @@
 <div class="site-wrapper">
   <header class="navbar">
-    <div class="logo">🚗 AutoSell</div>
-    <nav class="nav-links">
-      <a routerLink="/">Kezdőlap</a>
-      <a routerLink="/sell" class="active">Autó Eladás</a>
-    </nav>
+    <div class="nav-inner">
+      <a routerLink="/" class="logo" aria-label="AutoSell kezdőlap">
+        <span class="logo-mark" aria-hidden="true">A</span>
+        <span>Auto<span class="logo-accent">Sell</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Fő navigáció">
+        <a routerLink="/">Kezdőlap</a>
+        <a routerLink="/sell" class="active" aria-current="page">Autófelvásárlás</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="form-container">
-    <div class="form-card">
-      <h2>Addja el autóját</h2>
-      <p class="subtitle">Töltse ki az alábbi adatokat és töltsön fel képeket a járműről.</p>
+  <main class="form-container">
+    <section class="form-intro" aria-labelledby="page-title">
+      <p class="eyebrow">Közvetlen autófelvásárlás</p>
+      <h1 id="page-title">Adja el autóját nekünk.</h1>
+      <p class="subtitle">
+        Küldje el járműve adatait és elérhetőségét. Munkatársunk felveszi Önnel a kapcsolatot az
+        egyeztetéshez.
+      </p>
+    </section>
 
-      <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="brand">Márka</label>
-          <input
-            type="text"
-            id="brand"
-            [(ngModel)]="vehicle.brand"
-            name="brand"
-            required
-            placeholder="pl. BMW"
-          />
-        </div>
+    <section class="form-card" aria-labelledby="form-title">
+      <div class="form-card-heading">
+        <h2 id="form-title">Küldje el autója adatait</h2>
+        <p class="form-hint">A név és a telefonszám megadása kötelező.</p>
+      </div>
 
-        <div class="form-group">
-          <label for="model">Modell</label>
-          <input
-            type="text"
-            id="model"
-            [(ngModel)]="vehicle.model"
-            name="model"
-            required
-            placeholder="pl. 320d"
-          />
-        </div>
+      <form #inquiryForm="ngForm" (ngSubmit)="onSubmit(inquiryForm)" class="form-grid" novalidate>
+        <section class="form-section" aria-labelledby="vehicle-details-title">
+          <h3 id="vehicle-details-title">Jármű adatai</h3>
+          <div class="field-grid">
+            <div class="form-group">
+              <label for="brand">Márka</label>
+              <input
+                type="text"
+                id="brand"
+                #brandControl="ngModel"
+                [(ngModel)]="vehicle.brand"
+                name="brand"
+                required
+                placeholder="pl. BMW"
+              />
+              <small
+                id="brand-error"
+                class="field-error"
+                role="alert"
+                *ngIf="brandControl.invalid && (brandControl.touched || inquiryForm.submitted)"
+              >
+                Kérjük, adja meg a márkát.
+              </small>
+            </div>
 
-        <div class="form-group">
-          <label for="year">Évjárat</label>
-          <input
-            type="number"
-            id="year"
-            [(ngModel)]="vehicle.year"
-            name="year"
-            required
-            placeholder="pl. 2021"
-          />
-        </div>
+            <div class="form-group">
+              <label for="model">Modell</label>
+              <input
+                type="text"
+                id="model"
+                #modelControl="ngModel"
+                [(ngModel)]="vehicle.model"
+                name="model"
+                required
+                placeholder="pl. 320d"
+              />
+              <small
+                id="model-error"
+                class="field-error"
+                role="alert"
+                *ngIf="modelControl.invalid && (modelControl.touched || inquiryForm.submitted)"
+              >
+                Kérjük, adja meg a modellt.
+              </small>
+            </div>
 
-        <div class="form-group">
-          <label for="price">Irányár (Ft)</label>
-          <input
-            type="number"
-            id="price"
-            [(ngModel)]="vehicle.price"
-            name="price"
-            required
-            placeholder="pl. 8490000"
-          />
-        </div>
+            <div class="form-group">
+              <label for="year">Évjárat</label>
+              <input
+                type="number"
+                id="year"
+                #yearControl="ngModel"
+                [(ngModel)]="vehicle.year"
+                name="year"
+                required
+                placeholder="pl. 2021"
+              />
+              <small
+                id="year-error"
+                class="field-error"
+                role="alert"
+                *ngIf="yearControl.invalid && (yearControl.touched || inquiryForm.submitted)"
+              >
+                Kérjük, adja meg az évjáratot.
+              </small>
+            </div>
 
-        <div class="form-group">
-          <label for="photos">Autó képei (Több kép is választható)</label>
+            <div class="form-group">
+              <label for="price">Irányár (Ft)</label>
+              <input
+                type="number"
+                id="price"
+                #priceControl="ngModel"
+                [(ngModel)]="vehicle.price"
+                name="price"
+                required
+                placeholder="pl. 8490000"
+              />
+              <small
+                id="price-error"
+                class="field-error"
+                role="alert"
+                *ngIf="priceControl.invalid && (priceControl.touched || inquiryForm.submitted)"
+              >
+                Kérjük, adja meg az irányárat.
+              </small>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="contact-details-title">
+          <h3 id="contact-details-title">Elérhetőségei</h3>
+          <div class="field-grid">
+            <div class="form-group">
+              <label for="contactName">Név</label>
+              <input
+                type="text"
+                id="contactName"
+                #contactNameControl="ngModel"
+                [(ngModel)]="vehicle.contactName"
+                name="contactName"
+                autocomplete="name"
+                required
+                placeholder="pl. Kovács Anna"
+              />
+              <small
+                id="contact-name-error"
+                class="field-error"
+                role="alert"
+                *ngIf="
+                  contactNameControl.invalid &&
+                  (contactNameControl.touched || inquiryForm.submitted)
+                "
+              >
+                Kérjük, adja meg a nevét.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Telefonszám</label>
+              <input
+                type="tel"
+                id="phone"
+                #phoneControl="ngModel"
+                [(ngModel)]="vehicle.phone"
+                name="phone"
+                autocomplete="tel"
+                required
+                placeholder="pl. +36 30 123 4567"
+              />
+              <small
+                id="phone-error"
+                class="field-error"
+                role="alert"
+                *ngIf="phoneControl.invalid && (phoneControl.touched || inquiryForm.submitted)"
+              >
+                Kérjük, adja meg a telefonszámát.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail-cím (nem kötelező)</label>
+              <input
+                type="email"
+                id="email"
+                #emailControl="ngModel"
+                [(ngModel)]="vehicle.email"
+                name="email"
+                autocomplete="email"
+                placeholder="pl. anna@example.com"
+              />
+              <small
+                id="email-error"
+                class="field-error"
+                role="alert"
+                *ngIf="emailControl.invalid && (emailControl.touched || inquiryForm.submitted)"
+              >
+                Adjon meg érvényes e-mail-címet, vagy hagyja üresen.
+              </small>
+            </div>
+          </div>
+        </section>
+
+        <div class="form-group photo-group">
+          <label for="photos">Autó képei (több kép is választható)</label>
           <input
             type="file"
             id="photos"
@@ -76,12 +206,15 @@
           </small>
         </div>
 
-        <button type="submit" class="btn btn-primary full-width">Hirdetés Közzététele</button>
+        <button type="submit" class="btn btn-primary full-width">Ajánlatkérés elküldése</button>
       </form>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <footer class="footer">
-    <p>&copy; 2026 AutoSell. Minden jog fenntartva.</p>
+    <div class="footer-inner">
+      <a routerLink="/" class="footer-brand">AutoSell</a>
+      <p>&copy; 2026 AutoSell. Minden jog fenntartva.</p>
+    </div>
   </footer>
 </div>

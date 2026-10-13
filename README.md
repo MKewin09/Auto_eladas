@@ -1,4 +1,4 @@
-Letóltéshez: 
+Letóltéshez:
 
 ```bash
 git init
@@ -9,7 +9,8 @@ Inditáskor A CMD-be futtast a parancsot:
 ```bash
 npm install
 ```
-Utánna inditáshoz :
+
+Web oldal megtekintéséhez:
 
 ```bash
 npm serve -o
